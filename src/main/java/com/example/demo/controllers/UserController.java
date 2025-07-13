@@ -25,8 +25,13 @@ public class UserController {
     }
 
     @GetMapping("/by-name")
-    public ResponseEntity<User> getUserByName(@PathVariable String name){
+    public ResponseEntity<User> getUserByName(@RequestParam String name){
         return userService.getUserByName(name).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/by-age")
+    public ResponseEntity<List<User>> getUserByAge(@RequestParam int age){
+        return ResponseEntity.ok(userService.getUserByAge(age));
     }
 
     @PostMapping

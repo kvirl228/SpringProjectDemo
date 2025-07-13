@@ -29,6 +29,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> getUserByAge(int age) {
+        return inMemoryUserRepository.findByAge(age);
+    }
+
+
+    @Override
     public User createUser(User user) {
         user.setId(null);
         return inMemoryUserRepository.save(user);

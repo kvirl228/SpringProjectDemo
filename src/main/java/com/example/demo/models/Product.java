@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User {
+public class Product {
     Long id;
     String name;
-    int age;
-    String city;
+    int cost;
+    String category;
 }

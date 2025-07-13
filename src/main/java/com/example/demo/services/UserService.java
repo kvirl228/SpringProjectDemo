@@ -12,6 +12,8 @@ public interface UserService {
 
     Optional<User> getUserByName(String name);
 
+    List<User> getUserByAge(int age);
+
     User createUser(User user);
 
     User updateUser(User user, Long id);

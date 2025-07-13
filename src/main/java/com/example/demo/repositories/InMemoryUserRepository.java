@@ -12,6 +12,8 @@ public interface InMemoryUserRepository {
 
     Optional<User> findByUsername(String username);
 
+    List<User> findByAge(int age);
+
     Optional<User> findById(Long id);
 
     User save(User user);

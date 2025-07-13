@@ -25,6 +25,11 @@ public class InMemoryUserRepositoryImpl implements InMemoryUserRepository    {
     }
 
     @Override
+    public List<User> findByAge(int age) {
+        return users.stream().filter(user -> user.getAge() > age).toList();
+    }
+
+    @Override
     public Optional<User> findById(Long id) {
         return users.stream().filter(user -> user.getId().equals(id)).findFirst();
     }
