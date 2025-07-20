@@ -14,10 +14,10 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("api/products")
+@RequestMapping("/api/products")
 public class ProductController {
 
-    ProductService productService;
+    private final ProductService productService;
 
     @GetMapping
     public ResponseEntity<List<Product>> getProducts(){

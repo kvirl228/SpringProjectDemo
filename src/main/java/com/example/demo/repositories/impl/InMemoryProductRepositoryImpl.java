@@ -10,8 +10,8 @@ import java.util.Optional;
 
 @Repository
 public class InMemoryProductRepositoryImpl implements InMemoryProductRepository {
-    List<Product> products = new ArrayList<>();
-    Long id = 10L;
+    private final List<Product> products = new ArrayList<>();
+    private Long id = 1L;
 
     @Override
     public List<Product> findAllProducts() {
@@ -25,7 +25,7 @@ public class InMemoryProductRepositoryImpl implements InMemoryProductRepository 
 
     @Override
     public List<Product> findByCost(int cost) {
-        return products.stream().filter(product -> product.getCost()> cost).toList();
+        return products.stream().filter(product -> product.getCost() > cost).toList();
     }
 
     @Override

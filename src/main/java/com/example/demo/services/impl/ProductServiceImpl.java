@@ -3,15 +3,17 @@ package com.example.demo.services.impl;
 import com.example.demo.models.Product;
 import com.example.demo.repositories.InMemoryProductRepository;
 import com.example.demo.services.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    InMemoryProductRepository inMemoryProductRepository;
+    private final InMemoryProductRepository inMemoryProductRepository;
 
     @Override
     public List<Product> getAllProducts() {
