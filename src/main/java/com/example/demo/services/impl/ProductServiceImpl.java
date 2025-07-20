@@ -1,7 +1,7 @@
 package com.example.demo.services.impl;
 
 import com.example.demo.models.Product;
-import com.example.demo.repositories.InMemoryProductRepository;
+import com.example.demo.repositories.ProductRepository;
 import com.example.demo.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,43 +13,43 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    private final InMemoryProductRepository inMemoryProductRepository;
+    private final ProductRepository productRepository;
 
     @Override
     public List<Product> getAllProducts() {
-        return inMemoryProductRepository.findAllProducts();
+        return productRepository.findAll();
     }
 
     @Override
     public Optional<Product> getProductById(Long id) {
-        return inMemoryProductRepository.findById(id);
+        return productRepository.findById(id);
     }
 
     @Override
     public List<Product> getProductByCost(int cost) {
-        return inMemoryProductRepository.findByCost(cost);
+        return null;
     }
 
     @Override
     public Product updateProduct(Product product, Long id) {
-        Optional<Product> product1 = inMemoryProductRepository.findById(id);
+        Optional<Product> product1 = productRepository.findById(id);
 
         if(product1.isEmpty()){
             throw new IllegalArgumentException("User not found" + id);
         }
 
         product.setId(id);
-        return inMemoryProductRepository.save(product);
+        return productRepository.save(product);
     }
 
     @Override
     public Product createProduct(Product product) {
         product.setId(null);
-        return inMemoryProductRepository.save(product);
+        return productRepository.save(product);
     }
 
     @Override
     public void deleteProductById(Long id) {
-        inMemoryProductRepository.deleteById(id);
+        productRepository.deleteById(id);
     }
 }

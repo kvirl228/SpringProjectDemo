@@ -1,7 +1,6 @@
 package com.example.demo.services.impl;
 
 import com.example.demo.models.User;
-import com.example.demo.repositories.InMemoryUserRepository;
 import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.UserService;
 import lombok.RequiredArgsConstructor;

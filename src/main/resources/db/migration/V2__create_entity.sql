@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS test.products(
+    ID SERIAL PRIMARY KEY,
+    c_name VARCHAR(50) NOT NULL,
+    c_cost INTEGER NOT NULL,
+    c_category VARCHAR(40) NOT NULL
+)
